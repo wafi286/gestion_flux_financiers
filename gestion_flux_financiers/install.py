@@ -4,6 +4,6 @@ from gestion_flux_financiers.custom_fields import custom_fields
 
 def after_install():
     """Crée les Custom Fields sur les DocTypes natifs ERPNext après installation de l'app."""
-    frappe.log_info("Installation de Gestion des Flux Financiers — création des Custom Fields")
+    frappe.logger().info("Installation de Gestion des Flux Financiers — création des Custom Fields")
     create_custom_fields(custom_fields)
     frappe.db.commit()
