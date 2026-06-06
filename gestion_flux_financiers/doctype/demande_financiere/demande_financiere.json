@@ -1,0 +1,422 @@
+{
+  "actions": [],
+  "allow_rename": 1,
+  "autoname": "naming_series:",
+  "creation": "2026-01-01 00:00:00.000000",
+  "doctype": "DocType",
+  "document_type": "Document",
+  "engine": "InnoDB",
+  "field_order": [
+    "section_identification",
+    "naming_series",
+    "type_projet",
+    "projet_leantime",
+    "projet_openerp",
+    "categorie_flux",
+    "demandeur",
+    "beneficiaire",
+    "employe",
+    "column_break_1",
+    "date_demande",
+    "date_livraison_prevue",
+    "lieu_livraison",
+    "date_paiement_prevue",
+    "avance_pourcentage",
+    "mode_paiement",
+    "compte_paiement",
+    "section_motif",
+    "description_motif",
+    "section_lignes",
+    "lignes_demande",
+    "section_montants",
+    "montant_total_demande",
+    "reste_a_payer",
+    "section_workflow",
+    "workflow_state",
+    "document_natif_genere",
+    "document_natif_reference",
+    "section_pieces",
+    "attestation_service_fait",
+    "facture_finale",
+    "pieces_non_applicables",
+    "section_rejet",
+    "motif_rejet",
+    "section_specifique",
+    "mission_destination",
+    "mission_date_debut",
+    "mission_date_fin",
+    "mission_nb_participants",
+    "vehicule",
+    "carburant_kilometrage",
+    "carburant_quantite_litres",
+    "avance_mois_concerne",
+    "avance_montant_net",
+    "consultant_nom",
+    "consultant_type_prestation",
+    "consultant_periode",
+    "charge_type",
+    "charge_periode_conso",
+    "charge_ref_facture"
+  ],
+  "fields": [
+    {
+      "fieldname": "section_identification",
+      "fieldtype": "Section Break",
+      "label": "Identification"
+    },
+    {
+      "fieldname": "naming_series",
+      "fieldtype": "Select",
+      "label": "Série",
+      "options": "DF-.YYYY.-#####",
+      "reqd": 1
+    },
+    {
+      "fieldname": "type_projet",
+      "fieldtype": "Select",
+      "label": "Type de Projet",
+      "options": "Projet interne Leantime\nProjet client OpenERP 7\nAucun",
+      "default": "Aucun"
+    },
+    {
+      "fieldname": "projet_leantime",
+      "fieldtype": "Link",
+      "label": "Projet Leantime",
+      "options": "Mapping Projet Leantime",
+      "depends_on": "eval:doc.type_projet=='Projet interne Leantime'",
+      "mandatory_depends_on": "eval:doc.type_projet=='Projet interne Leantime'"
+    },
+    {
+      "fieldname": "projet_openerp",
+      "fieldtype": "Link",
+      "label": "Projet OpenERP",
+      "options": "Mapping Projet OpenERP",
+      "depends_on": "eval:doc.type_projet=='Projet client OpenERP 7'",
+      "mandatory_depends_on": "eval:doc.type_projet=='Projet client OpenERP 7'"
+    },
+    {
+      "fieldname": "categorie_flux",
+      "fieldtype": "Link",
+      "label": "Catégorie de Flux",
+      "options": "Type de Flux",
+      "reqd": 1
+    },
+    {
+      "fieldname": "demandeur",
+      "fieldtype": "Link",
+      "label": "Demandeur",
+      "options": "User",
+      "default": "__user",
+      "reqd": 1
+    },
+    {
+      "fieldname": "beneficiaire",
+      "fieldtype": "Link",
+      "label": "Bénéficiaire",
+      "options": "Supplier"
+    },
+    {
+      "fieldname": "employe",
+      "fieldtype": "Link",
+      "label": "Employé",
+      "options": "Employee",
+      "depends_on": "eval:['Avance sur salaire','Prêt au personnel','Consultant','Frais de mission'].includes(doc.categorie_flux)"
+    },
+    {
+      "fieldname": "column_break_1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "date_demande",
+      "fieldtype": "Date",
+      "label": "Date de Demande",
+      "default": "Today",
+      "reqd": 1
+    },
+    {
+      "fieldname": "date_livraison_prevue",
+      "fieldtype": "Date",
+      "label": "Date Livraison Prévue"
+    },
+    {
+      "fieldname": "lieu_livraison",
+      "fieldtype": "Data",
+      "label": "Lieu de Livraison"
+    },
+    {
+      "fieldname": "date_paiement_prevue",
+      "fieldtype": "Date",
+      "label": "Date Paiement Prévue"
+    },
+    {
+      "fieldname": "avance_pourcentage",
+      "fieldtype": "Percent",
+      "label": "Avance (%)"
+    },
+    {
+      "fieldname": "mode_paiement",
+      "fieldtype": "Link",
+      "label": "Mode de Paiement",
+      "options": "Mode of Payment"
+    },
+    {
+      "fieldname": "compte_paiement",
+      "fieldtype": "Link",
+      "label": "Compte de Paiement",
+      "options": "Account"
+    },
+    {
+      "fieldname": "section_motif",
+      "fieldtype": "Section Break",
+      "label": "Motif"
+    },
+    {
+      "fieldname": "description_motif",
+      "fieldtype": "Text Editor",
+      "label": "Description / Motif"
+    },
+    {
+      "fieldname": "section_lignes",
+      "fieldtype": "Section Break",
+      "label": "Lignes de Demande"
+    },
+    {
+      "fieldname": "lignes_demande",
+      "fieldtype": "Table",
+      "label": "Lignes",
+      "options": "Ligne de Demande"
+    },
+    {
+      "fieldname": "section_montants",
+      "fieldtype": "Section Break",
+      "label": "Montants"
+    },
+    {
+      "fieldname": "montant_total_demande",
+      "fieldtype": "Currency",
+      "label": "Montant Total",
+      "read_only": 1
+    },
+    {
+      "fieldname": "reste_a_payer",
+      "fieldtype": "Currency",
+      "label": "Reste à Payer",
+      "read_only": 1
+    },
+    {
+      "fieldname": "section_workflow",
+      "fieldtype": "Section Break",
+      "label": "État & Documents"
+    },
+    {
+      "fieldname": "workflow_state",
+      "fieldtype": "Select",
+      "label": "État Workflow",
+      "options": "Brouillon\nEn validation\nValidée\nEn traitement\nEn paiement\nPayée\nÀ clôturer\nClôturée\nRejetée",
+      "default": "Brouillon",
+      "reqd": 1
+    },
+    {
+      "fieldname": "document_natif_genere",
+      "fieldtype": "Data",
+      "label": "DocType Natif Généré",
+      "read_only": 1
+    },
+    {
+      "fieldname": "document_natif_reference",
+      "fieldtype": "Data",
+      "label": "Référence Document Natif",
+      "read_only": 1
+    },
+    {
+      "fieldname": "section_pieces",
+      "fieldtype": "Section Break",
+      "label": "Pièces Justificatives"
+    },
+    {
+      "fieldname": "attestation_service_fait",
+      "fieldtype": "Attach",
+      "label": "Attestation de Service Fait"
+    },
+    {
+      "fieldname": "facture_finale",
+      "fieldtype": "Attach",
+      "label": "Facture Finale"
+    },
+    {
+      "fieldname": "pieces_non_applicables",
+      "fieldtype": "Check",
+      "label": "Pièces Non Applicables"
+    },
+    {
+      "fieldname": "section_rejet",
+      "fieldtype": "Section Break",
+      "label": "Rejet",
+      "depends_on": "eval:doc.workflow_state=='Rejetée'"
+    },
+    {
+      "fieldname": "motif_rejet",
+      "fieldtype": "Text",
+      "label": "Motif de Rejet",
+      "depends_on": "eval:doc.workflow_state=='Rejetée'",
+      "mandatory_depends_on": "eval:doc.workflow_state=='Rejetée'"
+    },
+    {
+      "fieldname": "section_specifique",
+      "fieldtype": "Section Break",
+      "label": "Champs Spécifiques"
+    },
+    {
+      "fieldname": "mission_destination",
+      "fieldtype": "Data",
+      "label": "Destination",
+      "depends_on": "eval:doc.categorie_flux=='Frais de mission'"
+    },
+    {
+      "fieldname": "mission_date_debut",
+      "fieldtype": "Date",
+      "label": "Date Début Mission",
+      "depends_on": "eval:doc.categorie_flux=='Frais de mission'"
+    },
+    {
+      "fieldname": "mission_date_fin",
+      "fieldtype": "Date",
+      "label": "Date Fin Mission",
+      "depends_on": "eval:doc.categorie_flux=='Frais de mission'"
+    },
+    {
+      "fieldname": "mission_nb_participants",
+      "fieldtype": "Int",
+      "label": "Nb Participants",
+      "depends_on": "eval:doc.categorie_flux=='Frais de mission'"
+    },
+    {
+      "fieldname": "vehicule",
+      "fieldtype": "Link",
+      "label": "Véhicule",
+      "options": "Asset",
+      "depends_on": "eval:doc.categorie_flux=='Carburant'"
+    },
+    {
+      "fieldname": "carburant_kilometrage",
+      "fieldtype": "Float",
+      "label": "Kilométrage",
+      "depends_on": "eval:doc.categorie_flux=='Carburant'"
+    },
+    {
+      "fieldname": "carburant_quantite_litres",
+      "fieldtype": "Float",
+      "label": "Quantité (L)",
+      "depends_on": "eval:doc.categorie_flux=='Carburant'"
+    },
+    {
+      "fieldname": "avance_mois_concerne",
+      "fieldtype": "Select",
+      "label": "Mois Concerné",
+      "options": "Janvier\nFévrier\nMars\nAvril\nMai\nJuin\nJuillet\nAoût\nSeptembre\nOctobre\nNovembre\nDécembre",
+      "depends_on": "eval:doc.categorie_flux=='Avance sur salaire'"
+    },
+    {
+      "fieldname": "avance_montant_net",
+      "fieldtype": "Currency",
+      "label": "Montant Net",
+      "depends_on": "eval:doc.categorie_flux=='Avance sur salaire'"
+    },
+    {
+      "fieldname": "consultant_nom",
+      "fieldtype": "Data",
+      "label": "Nom Consultant",
+      "depends_on": "eval:doc.categorie_flux=='Consultant'"
+    },
+    {
+      "fieldname": "consultant_type_prestation",
+      "fieldtype": "Data",
+      "label": "Type Prestation",
+      "depends_on": "eval:doc.categorie_flux=='Consultant'"
+    },
+    {
+      "fieldname": "consultant_periode",
+      "fieldtype": "Data",
+      "label": "Période",
+      "depends_on": "eval:doc.categorie_flux=='Consultant'"
+    },
+    {
+      "fieldname": "charge_type",
+      "fieldtype": "Select",
+      "label": "Type de Charge",
+      "options": "Électricité\nEau\nGaz\nInternet\nTéléphone",
+      "depends_on": "eval:doc.categorie_flux=='Charges fixes'"
+    },
+    {
+      "fieldname": "charge_periode_conso",
+      "fieldtype": "Data",
+      "label": "Période Conso",
+      "depends_on": "eval:doc.categorie_flux=='Charges fixes'"
+    },
+    {
+      "fieldname": "charge_ref_facture",
+      "fieldtype": "Data",
+      "label": "Référence Facture",
+      "depends_on": "eval:doc.categorie_flux=='Charges fixes'"
+    }
+  ],
+  "is_submittable": 1,
+  "modified": "2026-01-01 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "Gestion des Flux Financiers",
+  "name": "Demande Financière",
+  "naming_rule": "By \"Naming Series\" field",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "submit": 1,
+      "cancel": 1
+    }
+  ],
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "states": [
+    {
+      "title": "Brouillon",
+      "color": "Gray"
+    },
+    {
+      "title": "En validation",
+      "color": "Orange"
+    },
+    {
+      "title": "Validée",
+      "color": "Green"
+    },
+    {
+      "title": "En traitement",
+      "color": "Blue"
+    },
+    {
+      "title": "En paiement",
+      "color": "Yellow"
+    },
+    {
+      "title": "Payée",
+      "color": "Purple"
+    },
+    {
+      "title": "À clôturer",
+      "color": "Darkgray"
+    },
+    {
+      "title": "Clôturée",
+      "color": "Black"
+    },
+    {
+      "title": "Rejetée",
+      "color": "Red"
+    }
+  ],
+  "track_changes": 1
+}

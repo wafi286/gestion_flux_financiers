@@ -1,0 +1,149 @@
+{
+  "creation": "2026-01-01 00:00:00.000000",
+  "doctype": "DocType",
+  "engine": "InnoDB",
+  "field_order": [
+    "section_leantime",
+    "leantime_url",
+    "leantime_api_key",
+    "section_openerp",
+    "openerp_mode_connexion",
+    "openerp_n8n_webhook_url",
+    "openerp_n8n_api_key",
+    "openerp_xmlrpc_url",
+    "openerp_xmlrpc_db",
+    "openerp_xmlrpc_user",
+    "openerp_xmlrpc_password",
+    "openerp_postgres_host",
+    "openerp_postgres_port",
+    "openerp_postgres_db",
+    "openerp_postgres_user",
+    "openerp_postgres_password",
+    "section_sync",
+    "frequence_sync_auto"
+  ],
+  "fields": [
+    {
+      "fieldname": "section_leantime",
+      "fieldtype": "Section Break",
+      "label": "Leantime"
+    },
+    {
+      "fieldname": "leantime_url",
+      "fieldtype": "Data",
+      "label": "URL Leantime"
+    },
+    {
+      "fieldname": "leantime_api_key",
+      "fieldtype": "Password",
+      "label": "Clé API Leantime"
+    },
+    {
+      "fieldname": "section_openerp",
+      "fieldtype": "Section Break",
+      "label": "OpenERP 7"
+    },
+    {
+      "fieldname": "openerp_mode_connexion",
+      "fieldtype": "Select",
+      "label": "Mode Connexion",
+      "options": "n8n\nXML-RPC direct\nPostgreSQL direct",
+      "default": "n8n"
+    },
+    {
+      "fieldname": "openerp_n8n_webhook_url",
+      "fieldtype": "Data",
+      "label": "Webhook n8n",
+      "depends_on": "eval:doc.openerp_mode_connexion=='n8n'"
+    },
+    {
+      "fieldname": "openerp_n8n_api_key",
+      "fieldtype": "Password",
+      "label": "Clé API n8n",
+      "depends_on": "eval:doc.openerp_mode_connexion=='n8n'"
+    },
+    {
+      "fieldname": "openerp_xmlrpc_url",
+      "fieldtype": "Data",
+      "label": "URL XML-RPC",
+      "depends_on": "eval:doc.openerp_mode_connexion=='XML-RPC direct'"
+    },
+    {
+      "fieldname": "openerp_xmlrpc_db",
+      "fieldtype": "Data",
+      "label": "Base de données",
+      "depends_on": "eval:doc.openerp_mode_connexion=='XML-RPC direct'"
+    },
+    {
+      "fieldname": "openerp_xmlrpc_user",
+      "fieldtype": "Data",
+      "label": "Utilisateur",
+      "depends_on": "eval:doc.openerp_mode_connexion=='XML-RPC direct'"
+    },
+    {
+      "fieldname": "openerp_xmlrpc_password",
+      "fieldtype": "Password",
+      "label": "Mot de passe",
+      "depends_on": "eval:doc.openerp_mode_connexion=='XML-RPC direct'"
+    },
+    {
+      "fieldname": "openerp_postgres_host",
+      "fieldtype": "Data",
+      "label": "Hôte PostgreSQL",
+      "depends_on": "eval:doc.openerp_mode_connexion=='PostgreSQL direct'"
+    },
+    {
+      "fieldname": "openerp_postgres_port",
+      "fieldtype": "Int",
+      "label": "Port PostgreSQL",
+      "default": 5432,
+      "depends_on": "eval:doc.openerp_mode_connexion=='PostgreSQL direct'"
+    },
+    {
+      "fieldname": "openerp_postgres_db",
+      "fieldtype": "Data",
+      "label": "Base PostgreSQL",
+      "depends_on": "eval:doc.openerp_mode_connexion=='PostgreSQL direct'"
+    },
+    {
+      "fieldname": "openerp_postgres_user",
+      "fieldtype": "Data",
+      "label": "Utilisateur PostgreSQL",
+      "depends_on": "eval:doc.openerp_mode_connexion=='PostgreSQL direct'"
+    },
+    {
+      "fieldname": "openerp_postgres_password",
+      "fieldtype": "Password",
+      "label": "Mot de passe PostgreSQL",
+      "depends_on": "eval:doc.openerp_mode_connexion=='PostgreSQL direct'"
+    },
+    {
+      "fieldname": "section_sync",
+      "fieldtype": "Section Break",
+      "label": "Synchronisation"
+    },
+    {
+      "fieldname": "frequence_sync_auto",
+      "fieldtype": "Select",
+      "label": "Fréquence Sync Auto",
+      "options": "Manuel\nToutes les heures\nQuotidien",
+      "default": "Manuel"
+    }
+  ],
+  "issingle": 1,
+  "modified": "2026-01-01 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "Gestion des Flux Financiers",
+  "name": "Configuration Intégration",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1
+    }
+  ],
+  "sort_field": "modified",
+  "sort_order": "DESC"
+}

@@ -1,0 +1,23 @@
+[build-system]
+requires = ["flit_core >=3.4,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "gestion_flux_financiers"
+authors = [
+    {name = "ASTALAVISTA Group", email = "it@astalavista-dz.com"}
+]
+dependencies = [
+    "frappe",
+    "erpnext",
+]
+requires-python = ">=3.10"
+dynamic = ["version"]
+description = "Hub transverse des demandes financières pour ERPNext"
+readme = "README.md"
+
+[project.urls]
+Source = "https://github.com/wafi286/gestion_flux_financiers"
+
+[tool.flit.module]
+name = "gestion_flux_financiers"

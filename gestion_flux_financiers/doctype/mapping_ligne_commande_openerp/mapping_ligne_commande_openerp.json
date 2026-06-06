@@ -1,0 +1,87 @@
+{
+  "creation": "2026-01-01 00:00:00.000000",
+  "doctype": "DocType",
+  "engine": "InnoDB",
+  "field_order": [
+    "id_ligne_openerp",
+    "projet",
+    "ref_article",
+    "designation_originale",
+    "quantite_prevue",
+    "quantite_restante",
+    "prix_unitaire",
+    "devise"
+  ],
+  "fields": [
+    {
+      "fieldname": "id_ligne_openerp",
+      "fieldtype": "Data",
+      "label": "ID Ligne OpenERP",
+      "reqd": 1,
+      "unique": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "projet",
+      "fieldtype": "Link",
+      "label": "Projet",
+      "options": "Mapping Projet OpenERP",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "ref_article",
+      "fieldtype": "Data",
+      "label": "Référence Article",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "designation_originale",
+      "fieldtype": "Data",
+      "label": "Désignation Originale",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "quantite_prevue",
+      "fieldtype": "Float",
+      "label": "Quantité Prévue",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "quantite_restante",
+      "fieldtype": "Float",
+      "label": "Quantité Restante",
+      "read_only": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "prix_unitaire",
+      "fieldtype": "Currency",
+      "label": "Prix Unitaire",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "devise",
+      "fieldtype": "Data",
+      "label": "Devise",
+      "in_list_view": 1
+    }
+  ],
+  "modified": "2026-01-01 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "Gestion des Flux Financiers",
+  "name": "Mapping Ligne Commande OpenERP",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1
+    }
+  ],
+  "sort_field": "modified",
+  "sort_order": "DESC"
+}

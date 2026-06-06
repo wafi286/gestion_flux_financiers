@@ -1,0 +1,58 @@
+{
+  "creation": "2026-01-01 00:00:00.000000",
+  "doctype": "DocType",
+  "engine": "InnoDB",
+  "field_order": [
+    "id_tache_leantime",
+    "nom_tache",
+    "projet",
+    "statut"
+  ],
+  "fields": [
+    {
+      "fieldname": "id_tache_leantime",
+      "fieldtype": "Data",
+      "label": "ID Tâche Leantime",
+      "reqd": 1,
+      "unique": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "nom_tache",
+      "fieldtype": "Data",
+      "label": "Nom Tâche",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "projet",
+      "fieldtype": "Link",
+      "label": "Projet",
+      "options": "Mapping Projet Leantime",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "statut",
+      "fieldtype": "Data",
+      "label": "Statut",
+      "in_list_view": 1
+    }
+  ],
+  "modified": "2026-01-01 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "Gestion des Flux Financiers",
+  "name": "Mapping Tâche Leantime",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1
+    }
+  ],
+  "sort_field": "modified",
+  "sort_order": "DESC"
+}

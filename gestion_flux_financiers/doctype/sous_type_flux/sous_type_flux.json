@@ -1,0 +1,51 @@
+{
+  "creation": "2026-01-01 00:00:00.000000",
+  "doctype": "DocType",
+  "editable_grid": 1,
+  "engine": "InnoDB",
+  "field_order": [
+    "sous_type_code",
+    "sous_type_nom",
+    "doctype_natif_cible",
+    "item_code_par_defaut"
+  ],
+  "fields": [
+    {
+      "fieldname": "sous_type_code",
+      "fieldtype": "Data",
+      "label": "Code Sous-type",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "sous_type_nom",
+      "fieldtype": "Data",
+      "label": "Nom Sous-type",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "doctype_natif_cible",
+      "fieldtype": "Select",
+      "label": "DocType Natif Cible (surcharge)",
+      "options": "\nPurchase Invoice\nExpense Claim\nEmployee Advance\nLoan\nStock Entry\nAsset Repair\nSubscription\nAucun",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "item_code_par_defaut",
+      "fieldtype": "Link",
+      "label": "Article par défaut",
+      "options": "Item",
+      "in_list_view": 1
+    }
+  ],
+  "istable": 1,
+  "modified": "2026-01-01 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "Gestion des Flux Financiers",
+  "name": "Sous Type Flux",
+  "owner": "Administrator",
+  "permissions": [],
+  "sort_field": "modified",
+  "sort_order": "DESC"
+}

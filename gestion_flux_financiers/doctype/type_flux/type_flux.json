@@ -1,0 +1,71 @@
+{
+  "creation": "2026-01-01 00:00:00.000000",
+  "doctype": "DocType",
+  "engine": "InnoDB",
+  "field_order": [
+    "code",
+    "nom",
+    "doctype_natif_cible",
+    "compte_charge_par_defaut",
+    "compte_analytique_par_defaut",
+    "sous_types"
+  ],
+  "fields": [
+    {
+      "fieldname": "code",
+      "fieldtype": "Data",
+      "label": "Code",
+      "reqd": 1,
+      "unique": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "nom",
+      "fieldtype": "Data",
+      "label": "Nom",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "doctype_natif_cible",
+      "fieldtype": "Select",
+      "label": "DocType Natif Cible",
+      "options": "Purchase Invoice\nExpense Claim\nEmployee Advance\nLoan\nStock Entry\nAsset Repair\nSubscription\nAucun",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "compte_charge_par_defaut",
+      "fieldtype": "Link",
+      "label": "Compte Charge Défaut",
+      "options": "Account"
+    },
+    {
+      "fieldname": "compte_analytique_par_defaut",
+      "fieldtype": "Link",
+      "label": "Centre de Coût Défaut",
+      "options": "Cost Center"
+    },
+    {
+      "fieldname": "sous_types",
+      "fieldtype": "Table",
+      "label": "Sous-types",
+      "options": "Sous Type Flux"
+    }
+  ],
+  "modified": "2026-01-01 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "Gestion des Flux Financiers",
+  "name": "Type de Flux",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1
+    }
+  ],
+  "sort_field": "modified",
+  "sort_order": "DESC"
+}

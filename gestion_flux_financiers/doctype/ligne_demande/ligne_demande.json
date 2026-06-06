@@ -1,0 +1,82 @@
+{
+  "creation": "2026-01-01 00:00:00.000000",
+  "doctype": "DocType",
+  "editable_grid": 1,
+  "engine": "InnoDB",
+  "field_order": [
+    "designation",
+    "quantite",
+    "prix_unitaire",
+    "montant_ligne",
+    "tache_leantime",
+    "ligne_commande_openerp",
+    "quantite_commande_restante",
+    "alerte_depassement"
+  ],
+  "fields": [
+    {
+      "fieldname": "designation",
+      "fieldtype": "Data",
+      "label": "Désignation",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "quantite",
+      "fieldtype": "Float",
+      "label": "Quantité",
+      "default": 1,
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "prix_unitaire",
+      "fieldtype": "Currency",
+      "label": "Prix Unitaire",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "montant_ligne",
+      "fieldtype": "Currency",
+      "label": "Montant Ligne",
+      "read_only": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "tache_leantime",
+      "fieldtype": "Link",
+      "label": "Tâche Leantime",
+      "options": "Mapping Tâche Leantime",
+      "in_list_view": 0
+    },
+    {
+      "fieldname": "ligne_commande_openerp",
+      "fieldtype": "Link",
+      "label": "Ligne Commande OpenERP",
+      "options": "Mapping Ligne Commande OpenERP",
+      "in_list_view": 0
+    },
+    {
+      "fieldname": "quantite_commande_restante",
+      "fieldtype": "Float",
+      "label": "Qté Commande Restante",
+      "read_only": 1
+    },
+    {
+      "fieldname": "alerte_depassement",
+      "fieldtype": "HTML",
+      "label": "Alerte",
+      "read_only": 1
+    }
+  ],
+  "istable": 1,
+  "modified": "2026-01-01 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "Gestion des Flux Financiers",
+  "name": "Ligne de Demande",
+  "owner": "Administrator",
+  "permissions": [],
+  "sort_field": "modified",
+  "sort_order": "DESC"
+}
